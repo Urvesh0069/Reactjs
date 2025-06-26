@@ -1,30 +1,37 @@
-import SummaryCard from "./Components/card"
-import Chart from "./Components/chart"
-import Navbar, { Sidebar } from "./Components/Nevbar"
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Dashboard from "./Components/Dashboard";
+import Income from "./Components/Income";
+import Expenses from "./Components/Expenses";
+import Transaction from "./Components/Transaction";
+import Login from "./Components/Login";
+import Signup from "./Components/Signup";
+import Emi from "./Components/Emi";
+import Savings from "./Components/Savings";
+import Investments from "./Components/Investments";
+import Budget_Planner from "./Components/Budget-Planner";
+import Purchase_Plans from "./Components/Purchase-Plans";
+import Reports from "./Components/Reports";
 
 function App() {
   return (
-    <div className="min-h-screen bg-white flex">
-      {/* Sidebar */}
-      <div className="w-64 bg-white shadow-md">
-        <Sidebar activePage="Dashboard" />
-      </div>
-
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col">
-        {/* Navbar */}
-        <div className="sticky top-0 z-10 bg-white-100 shadow">
-          <Navbar heading="Expense Tracker" />
-        </div>
-
-        {/* Content Area */}
-        <main className="p-6 space-y-6">
-          <SummaryCard />
-          <Chart />
-        </main>
-      </div>
-    </div>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/Transaction" element={<Transaction />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/dashbord" element={<Dashboard />} />
+        <Route path="/income" element={<Income />} />
+        <Route path="/expenses" element={<Expenses />} />
+        <Route path="/emi" element={<Emi />} />
+        <Route path="/savings" element={<Savings />} />
+        <Route path="/investments" element={<Investments />} />
+        <Route path="/budget-planner" element={<Budget_Planner />} />
+        <Route path="/purchase-plans" element={<Purchase_Plans />} />
+        <Route path="/reports" element={<Reports />} />
+        <Route path="*" element={<div>404 Not Found</div>} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

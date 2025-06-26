@@ -1,0 +1,51 @@
+ <a
+  href={link.path}
+  className={ `block px-3 py-2 rounded text-sm font-medium ${
+  activePage === link.name
+  ? "bg-purple-600 text-white"
+  : "text-gray-700 hover:bg-gray-200"
+  }`}>
+  {link.name}
+</a>
+
+const links = [
+{ name: "Dashboard", path: "/index.html" },
+{ name: "Income", path: "/HTML/Income.html" },
+{ name: "Expenses", path: "/HTML/Expenses.html" },
+{ name: "EMI / Loans", path: "/HTML/EMI-Loan.html" },
+{ name: "Savings", path: "/HTML/Savings.html" },
+{ name: "Investments", path: "/HTML/Investments.html" },
+{ name: "Budget Planner", path: "/HTML/Budget-Planner.html" },
+{ name: "Purchase Plans", path: "/HTML/Purchase-Plans.html" },
+{ name: "Reports", path: "/HTML/Reports.html" },
+];
+
+<button
+  className="bg-purple-600 text-white hover:text-white hover:bg-purple-400 block m-2 my-3 w-50 px-3 py-3 rounded text-sm font-medium "
+  onClick={() => {
+  console.log(`Navigating to ${(page.name, page.path)}`);
+  }}
+  >
+  {page.name}
+</button>
+
+// { name: "Expenses", path: "/HTML/Expenses.html" },
+    // { name: "EMI / Loans", path: "/HTML/EMI-Loan.html" },
+    // { name: "Savings", path: "/HTML/Savings.html" },
+    // { name: "Investments", path: "/HTML/Investments.html" },
+    // { name: "Budget Planner", path: "/HTML/Budget-Planner.html" },
+    // { name: "Purchase Plans", path: "/HTML/Purchase-Plans.html" },
+    // { name: "Reports", path: "/HTML/Reports.html" },
+
+    <a
+          href="/HTML/Login.html"
+          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
+        >
+          Login
+        </a>
+        <a
+          href="/HTML/Sign-In.html"
+          className="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700 transition"
+        >
+          Sign In
+        </a>
