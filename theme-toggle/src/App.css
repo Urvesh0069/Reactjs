@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+.app {
+  text-align: center;
+  padding: 50px;
+  background-color: #f0f0f0;
+  color: #000;
+  transition: all 0.3s ease-in-out;
+}
+
+.app.dark {
+  background-color: #333;
+  color: #fff;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
