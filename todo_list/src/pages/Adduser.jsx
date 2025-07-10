@@ -1,79 +1,110 @@
-import React from 'react'
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 const Adduser = () => {
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    number: "",
+    dob: "",
+    image: ""
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setUser((prev) => ({ ...prev, image: reader.result }));
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+ const navigate = useNavigate();
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    await fetch("http://localhost:3000/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(user)
+
+
+    });
+
+    // alert("User added successfully!");
+    setUser({
+      name: "",
+      email: "",
+      number: "",
+      dob: "",
+      image: ""
+    });
+
+    navigate("/")
+  };
+
   return (
-    <>
-          <div className="max-w-md mx-auto mt-25 p-6 bg-white rounded-lg shadow-xl">
-        <h2 className="text-2xl font-bold mb-6 text-center">Add User</h2>
+    <div className="max-w-md mx-auto mt-20 p-6 bg-white rounded-lg shadow-xl">
+      <h2 className="text-2xl font-bold mb-6 text-center">Add User</h2>
+      <form className="space-y-4" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          value={user.name}
+          onChange={handleChange}
+          className="w-full border px-3 py-2 rounded"
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={user.email}
+          onChange={handleChange}
+          className="w-full border px-3 py-2 rounded"
+        />
+        <input
+          type="tel"
+          name="number"
+          placeholder="Phone"
+          value={user.number}
+          onChange={handleChange}
+          className="w-full border px-3 py-2 rounded"
+        />
+        <input
+          type="date"
+          name="dob"
+          value={user.dob}
+          onChange={handleChange}
+          className="w-full border px-3 py-2 rounded"
+        />
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleImageChange}
+          className="w-full border px-3 py-2 rounded"
+        />
+        <button
+          type="submit"
+          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  );
+};
 
-        <form className="space-y-4">
-          {/* Name */}
-          <div>
-            <label className="block font-medium mb-1">Name</label>
-            <input
-              type="text"
-              name="name"
-              placeholder="Enter name"
-              className="w-full border border-gray-300 rounded px-3 py-2"
-            />
-          </div>
-
-          {/* Email */}
-          <div>
-            <label className="block font-medium mb-1">Email</label>
-            <input
-              type="email"
-              name="email"
-              placeholder="Enter email"
-              className="w-full border border-gray-300 rounded px-3 py-2"
-            />
-          </div>
-
-          {/* Phone Number */}
-          <div>
-            <label className="block font-medium mb-1">Phone Number</label>
-            <input
-              type="tel"
-              name="number"
-              placeholder="Enter phone number"
-              className="w-full border border-gray-300 rounded px-3 py-2"
-            />
-          </div>
-
-          {/* DOB */}
-          <div>
-            <label className="block font-medium mb-1">Date of Birth</label>
-            <input
-              type="date"
-              name="dob"
-              className="w-full border border-gray-300 rounded px-3 py-2"
-            />
-          </div>
-
-          {/* Image Upload */}
-          <div>
-            <label className="block font-medium mb-1">Profile Image</label>
-            <input
-              type="file"
-              name="image"
-              accept="image/*"
-              className="w-full border border-gray-300 rounded px-3 py-2"
-            />
-          </div>
-
-          {/* Submit Button */}
-          <div>
-            <button
-              type="submit"
-              className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
-            >
-              Submit
-            </button>
-          </div>
-        </form>
-      </div>
-    </>
-  )
-}
-
-export default Adduser
+export default Adduser;
