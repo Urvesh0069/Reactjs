@@ -10,7 +10,7 @@ function RouterPage() {
       <Route path="/" element={<Layouts />}>
         <Route path="/" element={<Home />} />
         <Route path="/adduser" element={<Adduser />} />
-        <Route path="/edituser" element={<Edituser />} />
+        <Route path="/edituser/:id" element={<Edituser />} />
 
         {/* Add other routes here */}
       </Route>
