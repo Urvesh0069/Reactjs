@@ -1,29 +1,23 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import StudentForm from "./components/studentform";
-import StudentList from "./components/student_list";
-import Home from "./components/home";
+import { Routes, Route } from "react-router-dom";
+import { Home, Navbar, StudentForm, StudentList } from "./components/index";
 
 const App = () => {
   const [students, setStudents] = useState([]);
 
-  // Handler to add a student from StudentForm
   const handleAddStudent = (student) => {
     setStudents([...students, student]);
   };
 
   return (
-    <Router>
+    <div>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Home />}>
-          <Route
-            path="/add"
-            element={<StudentForm onAddStudent={handleAddStudent} />}
-          />
-          <Route path="/list" element={<StudentList students={students} />} />
-        </Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/add" element={<StudentForm onaddstudent={handleAddStudent} />} />
+        <Route path="/list" element={<StudentList students={students} />} />
       </Routes>
-    </Router>
+    </div>
   );
 };
 
