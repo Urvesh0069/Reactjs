@@ -1,29 +1,33 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addStudent } from "../students/studentSlice";
 
-const StudentForm = ({ onaddstudent }) => {
-  const initialState = {
-    id: "",
-    name: "",
-    age: "",
-    gender: "",
-    mobile: "",
-    email: "",
-    course: "",
-    admissiondate: "",
-    image: "",
-  };
+const initialState = {
+  id: "",
+  name: "",
+  age: "",
+  gender: "",
+  mobile: "",
+  email: "",
+  course: "",
+  admissiondate: "",
+  image: "",
+};
 
+const StudentForm = () => {
   const [student, setStudent] = useState(initialState);
+  const dispatch = useDispatch();
 
   const handleChange = (e) =>
     setStudent((s) => ({ ...s, [e.target.name]: e.target.value }));
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onaddstudent(student);
+    // Generate a unique id for each student (timestamp-based)
+    const studentWithId = { ...student, id: Date.now().toString() };
+    dispatch(addStudent(studentWithId));
     setStudent(initialState);
     alert("Student added successfully!");
-    console.log("Form submitted:", student);
   };
 
   const handleImageChange = (e) => {
@@ -43,7 +47,6 @@ const StudentForm = ({ onaddstudent }) => {
         className="mt-[5%] max-w-2xl mx-auto p-6 bg-gradient-to-br from-[#18122B] to-[#393053] rounded-lg shadow-2xl text-white"
       >
         <h2 className="text-2xl font-bold mb-6 text-center">Add New Student</h2>
-
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div>
             <label className="block mb-2 text-sm font-medium text-[#CCC2F2]">
@@ -58,7 +61,6 @@ const StudentForm = ({ onaddstudent }) => {
               required
             />
           </div>
-
           <div>
             <label className="block mb-2 text-sm font-medium text-[#CCC2F2]">
               Age
@@ -72,7 +74,6 @@ const StudentForm = ({ onaddstudent }) => {
               required
             />
           </div>
-
           <div>
             <label className="block mb-2 text-sm font-medium text-[#CCC2F2]">
               Gender
@@ -91,7 +92,6 @@ const StudentForm = ({ onaddstudent }) => {
               <option value="other">Other</option>
             </select>
           </div>
-
           <div>
             <label className="block mb-2 text-sm font-medium text-[#CCC2F2]">
               Mobile
@@ -107,7 +107,6 @@ const StudentForm = ({ onaddstudent }) => {
               placeholder="Enter 10-digit mobile number"
             />
           </div>
-
           <div>
             <label className="block mb-2 text-sm font-medium text-[#CCC2F2]">
               Email
@@ -121,7 +120,6 @@ const StudentForm = ({ onaddstudent }) => {
               required
             />
           </div>
-
           <div>
             <label className="block mb-2 text-sm font-medium text-[#CCC2F2]">
               Course
@@ -135,7 +133,6 @@ const StudentForm = ({ onaddstudent }) => {
               required
             />
           </div>
-
           <div>
             <label className="block mb-2 text-sm font-medium text-[#CCC2F2]">
               Admission Date
@@ -149,7 +146,6 @@ const StudentForm = ({ onaddstudent }) => {
               required
             />
           </div>
-
           <div>
             <label className="block mb-2 text-sm font-medium text-[#CCC2F2]">
               Profile Image
@@ -169,7 +165,6 @@ const StudentForm = ({ onaddstudent }) => {
             )}
           </div>
         </div>
-
         <button
           type="submit"
           className="mt-6 w-full bg-[#443C68] hover:bg-[#18122B] text-white py-2 px-4 rounded transition"
