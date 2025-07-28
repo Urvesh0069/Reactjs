@@ -1,7 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  students: [],
+  students: [{
+    id: "1",
+    name: "John Doe",
+    age: 20,
+  },],
   status: 'idle', // loading, success, failed
   error: null
 };

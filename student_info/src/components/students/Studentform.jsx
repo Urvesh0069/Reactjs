@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addStudent } from "../students/studentSlice";
+import { addStudent } from "../../features/students/studentSlice";
 
 const initialState = {
   id: "",
