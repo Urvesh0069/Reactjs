@@ -1,17 +1,20 @@
-import { Outlet } from 'react-router-dom'
-import Navbar from '../components/navbar';
+import { Outlet } from "react-router-dom";
+import Navbar from "../components/navbar";
 
 function Layouts() {
   return (
-    <div className="w-full">
-      <div className="w-[100%] h-[10%] fixed" style={{ boxShadow: '2px 0 5px rgba(0, 0, 0, 0.1)' }}>
+    <div className="w-full min-h-screen" style={{ backgroundColor: '#ECDFCC' }}>
+      <div
+        className="w-[100%] h-[10%] fixed"
+        style={{ backgroundColor: '#697565', boxShadow: '2px 0 5px rgba(0, 0, 0, 0.1)' }}
+      >
         <Navbar />
       </div>
-      <div className=" top-[12%] left-[13%] w-[100%] h-[90%] overflow-y-auto">
+      <div className="top-[12%] left-[13%] w-[100%] h-[90%] overflow-y-auto" style={{ backgroundColor: '#ECDFCC' }}>
         <Outlet />
       </div>
     </div>
   );
 }
 
-export default Layouts
+export default Layouts;

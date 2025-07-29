@@ -53,8 +53,8 @@ const Edituser = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-20 p-6 bg-white rounded-lg shadow-xl">
-      <h2 className="text-2xl font-bold mb-6 text-center">Edit User</h2>
+    <div className="max-w-md mx-auto mt-20 p-6 rounded-lg shadow-xl" style={{ backgroundColor: '#ECDFCC' }}>
+      <h2 className="text-2xl font-bold mb-6 text-center" style={{ color: '#3C3D37' }}>Edit User</h2>
       <form className="space-y-4" onSubmit={handleSubmit}>
         <input
           type="text"
@@ -63,6 +63,7 @@ const Edituser = () => {
           onChange={handleChange}
           placeholder="Name"
           className="w-full border px-3 py-2 rounded"
+          style={{ borderColor: '#697565', color: '#3C3D37', backgroundColor: '#ECDFCC' }}
         />
         <input
           type="email"
@@ -71,6 +72,7 @@ const Edituser = () => {
           onChange={handleChange}
           placeholder="Email"
           className="w-full border px-3 py-2 rounded"
+          style={{ borderColor: '#697565', color: '#3C3D37', backgroundColor: '#ECDFCC' }}
         />
         <input
           type="tel"
@@ -79,6 +81,7 @@ const Edituser = () => {
           onChange={handleChange}
           placeholder="Phone"
           className="w-full border px-3 py-2 rounded"
+          style={{ borderColor: '#697565', color: '#3C3D37', backgroundColor: '#ECDFCC' }}
         />
         <input
           type="date"
@@ -86,16 +89,19 @@ const Edituser = () => {
           value={user.dob}
           onChange={handleChange}
           className="w-full border px-3 py-2 rounded"
+          style={{ borderColor: '#697565', color: '#3C3D37', backgroundColor: '#ECDFCC' }}
         />
         <input
           type="file"
           accept="image/*"
           onChange={handleImageChange}
           className="w-full border px-3 py-2 rounded"
+          style={{ borderColor: '#697565', color: '#3C3D37', backgroundColor: '#ECDFCC' }}
         />
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+          className="w-full py-2 rounded"
+          style={{ backgroundColor: '#697565', color: '#ECDFCC' }}
         >
           Update User
         </button>

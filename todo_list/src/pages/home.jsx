@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const Home = () => {
@@ -15,7 +15,9 @@ const Home = () => {
       const data = await res.json();
       setUsers(data);
 
-      const years = [...new Set(data.map(user => new Date(user.dob).getFullYear()))];
+      const years = [
+        ...new Set(data.map((user) => new Date(user.dob).getFullYear())),
+      ];
       setUniqueYears(years.sort());
     } catch (err) {
       console.log(err);
@@ -47,14 +49,16 @@ const Home = () => {
       ? new Date(user.dob).getFullYear().toString() === searchYear
       : true;
 
-    const nameMatch = user.name.toLowerCase().includes(searchName.toLowerCase());
+    const nameMatch = user.name
+      .toLowerCase()
+      .includes(searchName.toLowerCase());
 
     return yearMatch && nameMatch;
   });
 
   return (
-    <div className="p-6 mt-20">
-      <h2 className="text-2xl font-bold mb-4">User Data Table</h2>
+    <div className="p-6 mt-20 min-h-screen" style={{ backgroundColor: '#ECDFCC' }}>
+      <h2 className="text-2xl font-bold mb-4" style={{ color: '#3C3D37' }}>User Data Table</h2>
 
       {/* 🔍 Search & Filter */}
       <div className="flex flex-col md:flex-row gap-4 mb-4 md:items-center md:justify-between">
@@ -63,12 +67,14 @@ const Home = () => {
           placeholder="Search by name..."
           value={searchName}
           onChange={(e) => setSearchName(e.target.value)}
-          className="border border-gray-300 px-4 py-2 rounded w-full md:w-1/2"
+          className="border px-4 py-2 rounded w-full md:w-1/2"
+          style={{ borderColor: '#697565', color: '#3C3D37', backgroundColor: '#ECDFCC' }}
         />
         <select
           value={searchYear}
           onChange={(e) => setSearchYear(e.target.value)}
-          className="border border-gray-300 px-4 py-2 rounded w-full md:w-1/3"
+          className="border px-4 py-2 rounded w-full md:w-1/3"
+          style={{ borderColor: '#697565', color: '#3C3D37', backgroundColor: '#ECDFCC' }}
         >
           <option value="">All Years</option>
           {uniqueYears.map((year) => (
@@ -80,47 +86,51 @@ const Home = () => {
       </div>
 
       <button
-        className="mb-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        className="mb-4 px-4 py-2 rounded"
+        style={{ backgroundColor: '#697565', color: '#ECDFCC' }}
         onClick={addUser}
       >
         Add User
       </button>
 
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border border-gray-200 rounded-md overflow-hidden">
-          <thead className="bg-blue-600 text-white">
+        <table className="min-w-full border rounded-md overflow-hidden" style={{ backgroundColor: '#ECDFCC', borderColor: '#697565' }}>
+          <thead style={{ backgroundColor: '#697565' }}>
             <tr>
-              <th className="px-4 py-2 text-left">Image</th>
-              <th className="px-4 py-2 text-left">Name</th>
-              <th className="px-4 py-2 text-left">Email</th>
-              <th className="px-4 py-2 text-left">Phone</th>
-              <th className="px-4 py-2 text-left">DOB</th>
-              <th className="px-4 py-2 text-left">Action</th>
+              <th className="px-4 py-2 text-left" style={{ color: '#ECDFCC' }}>Image</th>
+              <th className="px-4 py-2 text-left" style={{ color: '#ECDFCC' }}>Name</th>
+              <th className="px-4 py-2 text-left" style={{ color: '#ECDFCC' }}>Email</th>
+              <th className="px-4 py-2 text-left" style={{ color: '#ECDFCC' }}>Phone</th>
+              <th className="px-4 py-2 text-left" style={{ color: '#ECDFCC' }}>DOB</th>
+              <th className="px-4 py-2 text-left" style={{ color: '#ECDFCC' }}>Action</th>
             </tr>
           </thead>
           <tbody>
             {filteredUsers.map((user, idx) => (
-              <tr key={idx} className="border-t border-gray-200">
+              <tr key={idx} className="border-t" style={{ borderColor: '#697565' }}>
                 <td className="px-4 py-2">
                   <img
                     src={user.image}
                     alt="user"
-                    className="w-12 h-12 rounded-full"
+                    className="w-12 h-12 rounded-full border-2"
+                    style={{ borderColor: '#697565', backgroundColor: '#ECDFCC' }}
                   />
                 </td>
-                <td className="px-4 py-2">{user.name}</td>
-                <td className="px-4 py-2">{user.email}</td>
-                <td className="px-4 py-2">{user.number}</td>
-                <td className="px-4 py-2">{user.dob}</td>
+                <td className="px-4 py-2" style={{ color: '#3C3D37' }}>{user.name}</td>
+                <td className="px-4 py-2" style={{ color: '#3C3D37' }}>{user.email}</td>
+                <td className="px-4 py-2" style={{ color: '#3C3D37' }}>{user.number}</td>
+                <td className="px-4 py-2" style={{ color: '#3C3D37' }}>{user.dob}</td>
                 <td className="px-4 py-2 space-x-2">
                   <button
-                    className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 text-sm"
+                    className="px-3 py-1 rounded text-sm"
+                    style={{ backgroundColor: '#697565', color: '#ECDFCC' }}
                     onClick={() => navigate(`/edituser/${user.id}`)}
                   >
                     Edit
                   </button>
                   <button
-                    className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 text-sm"
+                    className="px-3 py-1 rounded text-sm"
+                    style={{ backgroundColor: '#3C3D37', color: '#ECDFCC' }}
                     onClick={() => DeleteUser(user.id)}
                   >
                     Delete

@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 const Adduser = () => {
   const [user, setUser] = useState({
     name: "",
     email: "",
     number: "",
     dob: "",
-    image: ""
+    image: "",
   });
 
   const handleChange = (e) => {
@@ -27,8 +26,7 @@ const Adduser = () => {
     }
   };
 
- const navigate = useNavigate();
-
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,28 +34,26 @@ const Adduser = () => {
     await fetch("http://localhost:3000/users", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(user)
-
-
+      body: JSON.stringify(user),
     });
 
-    // alert("User added successfully!");
+    alert("User added successfully!");
     setUser({
       name: "",
       email: "",
       number: "",
       dob: "",
-      image: ""
+      image: "",
     });
 
-    navigate("/")
+    navigate("/");
   };
 
   return (
-    <div className="max-w-md mx-auto mt-20 p-6 bg-white rounded-lg shadow-xl">
-      <h2 className="text-2xl font-bold mb-6 text-center">Add User</h2>
+    <div className="max-w-md mx-auto mt-20 p-6 rounded-lg shadow-xl" style={{ backgroundColor: '#ECDFCC' }}>
+      <h2 className="text-2xl font-bold mb-6 text-center" style={{ color: '#3C3D37' }}>Add User</h2>
       <form className="space-y-4" onSubmit={handleSubmit}>
         <input
           type="text"
@@ -66,6 +62,7 @@ const Adduser = () => {
           value={user.name}
           onChange={handleChange}
           className="w-full border px-3 py-2 rounded"
+          style={{ borderColor: '#697565', color: '#3C3D37', backgroundColor: '#ECDFCC' }}
         />
         <input
           type="email"
@@ -74,6 +71,7 @@ const Adduser = () => {
           value={user.email}
           onChange={handleChange}
           className="w-full border px-3 py-2 rounded"
+          style={{ borderColor: '#697565', color: '#3C3D37', backgroundColor: '#ECDFCC' }}
         />
         <input
           type="tel"
@@ -82,6 +80,7 @@ const Adduser = () => {
           value={user.number}
           onChange={handleChange}
           className="w-full border px-3 py-2 rounded"
+          style={{ borderColor: '#697565', color: '#3C3D37', backgroundColor: '#ECDFCC' }}
         />
         <input
           type="date"
@@ -89,16 +88,19 @@ const Adduser = () => {
           value={user.dob}
           onChange={handleChange}
           className="w-full border px-3 py-2 rounded"
+          style={{ borderColor: '#697565', color: '#3C3D37', backgroundColor: '#ECDFCC' }}
         />
         <input
           type="file"
           accept="image/*"
           onChange={handleImageChange}
           className="w-full border px-3 py-2 rounded"
+          style={{ borderColor: '#697565', color: '#3C3D37', backgroundColor: '#ECDFCC' }}
         />
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+          className="w-full py-2 rounded"
+          style={{ backgroundColor: '#697565', color: '#ECDFCC' }}
         >
           Submit
         </button>
