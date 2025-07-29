@@ -1,6 +1,3 @@
 expense-tracker/node_modules/.bin/acorn
 *node_modules/
 # Ignore all node_modules directories
-
-zustand/
-# Ignore Zustand state management library files
