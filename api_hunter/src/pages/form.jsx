@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { adduser, getUsers, deleteUser, updateUser } from "../APIs/crud";
+import {
+  adduser,
+  getUsers,
+  deleteUser,
+  updateUser,
+} from "../APIs/crud";
 
 const UserForm = () => {
   const [users, setUsers] = useState([]);
@@ -41,10 +46,16 @@ const UserForm = () => {
   };
 
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial" }}>
-      <h2>{editingId ? "Update User" : "Add User"}</h2>
+    <div className="p-8 font-sans">
+      <h2 className="text-3xl font-semibold mb-4">
+        {editingId ? "Update User" : "Add User"}
+      </h2>
 
-      <form onSubmit={handleSubmit}>
+      {/* Form */}
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col gap-3 bg-white p-4 shadow-md rounded-lg w-full max-w-md"
+      >
         <input
           type="text"
           name="name"
@@ -52,6 +63,7 @@ const UserForm = () => {
           onChange={handleChange}
           placeholder="Enter name"
           required
+          className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
         <input
           type="email"
@@ -60,38 +72,64 @@ const UserForm = () => {
           onChange={handleChange}
           placeholder="Enter email"
           required
+          className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
-        <button type="submit">
+        <button
+          type="submit"
+          className={`py-2 rounded-md text-white font-medium ${
+            editingId
+              ? "bg-green-500 hover:bg-yellow-600"
+              : "bg-red-500 hover:bg-red-600"
+          }`}
+        >
           {editingId ? "Update User" : "Add User"}
         </button>
       </form>
 
-      <h3>User List</h3>
-      <table border="1" cellPadding="5" style={{ marginTop: "10px" }}>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th colSpan={2}>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((u) => (
-            <tr key={u.id}>
-              <td>{u.id}</td>
-              <td>{u.name}</td>
-              <td>{u.email}</td>
-              <td>
-                <button onClick={() => handleEdit(u)}>Edit</button>
-              </td>
-              <td>
-                <button onClick={() => handleDelete(u.id)}>Delete</button>
-              </td>
+      {/* User List */}
+      <h3 className="text-xl font-semibold mt-6 mb-3">User List</h3>
+      <div className="overflow-x-auto">
+        <table className="table-auto border-collapse border border-gray-300 w-full text-left shadow-md">
+          <thead className="bg-gray-100">
+            <tr>
+              <th className="border border-gray-300 px-4 py-2">ID</th>
+              <th className="border border-gray-300 px-4 py-2">Name</th>
+              <th className="border border-gray-300 px-4 py-2">Email</th>
+              <th
+                className="border border-gray-300 px-4 py-2 text-center"
+                colSpan={2}
+              >
+                Action
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {users.map((u) => (
+              <tr key={u.id} className="hover:bg-gray-50">
+                <td className="border border-gray-300 px-4 py-2">{u.id}</td>
+                <td className="border border-gray-300 px-4 py-2">{u.name}</td>
+                <td className="border border-gray-300 px-4 py-2">{u.email}</td>
+                <td className="border border-gray-300 px-4 py-2 text-center">
+                  <button
+                    onClick={() => handleEdit(u)}
+                    className="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded-md"
+                  >
+                    Edit
+                  </button>
+                </td>
+                <td className="border border-gray-300 px-4 py-2 text-center">
+                  <button
+                    onClick={() => handleDelete(u.id)}
+                    className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

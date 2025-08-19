@@ -5,11 +5,13 @@ import ProductCarousel from "../components/ProductCarousel";
 
 const HomePage = () => {
   return (
-    <div>
-      <MainContent />
-      <ServiceFeatures />
+    <>
+      <div>
+        <MainContent />
+        <ServiceFeatures />
+      </div>
       <ProductCarousel />
-    </div>
+    </>
   );
 };
 

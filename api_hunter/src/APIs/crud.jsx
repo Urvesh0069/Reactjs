@@ -20,6 +20,7 @@ export const deleteUser = async (id) => {
   });
 };
 
+
 export const updateUser = async (id, user) => {
   const response = await fetch(`http://localhost:5000/users/${id}`, {
     method: "PUT",
