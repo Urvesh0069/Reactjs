@@ -67,7 +67,7 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className="w-80 bg-white shadow-lg border-r border-gray-100 h-screen sticky top-16 overflow-y-auto">
+    <aside className="w-65 bg-white shadow-lg border-r border-gray-100  ">
       {/* Categories List */}
       <div className="py-2">
         {categories.map((category, index) => {

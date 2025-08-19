@@ -1,77 +1,51 @@
-import React from 'react';
-import { Menu } from 'lucide-react';
-import { Heart, ShoppingCart, User, ChevronDown } from 'lucide-react';
+import React from "react";
+import { Menu, Heart, ShoppingCart, User, ChevronDown } from "lucide-react";
 
 const Header = () => {
   return (
     <header className="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
-      <div className="flex items-center h-16">
+      <div className="flex items-center">
         {/* Categories Button - Left Side */}
-        <div className="w-80 bg-blue-600 h-16 flex items-center px-6">
+        <div className="w-[260px] bg-blue-600 h-[60px] flex items-center px-6">
           <Menu className="h-5 w-5 text-white mr-3" />
           <span className="text-white font-semibold text-lg">Categories</span>
         </div>
 
-        {/* Main Navigation - Center */}
-        <div className="flex-1 flex justify-center">
-          <nav className="flex items-center space-x-8">
-            <a 
-              href="#" 
-              className="flex items-center text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 group"
-            >
+        {/* Middle + Right Section */}
+        <div className="flex flex-1 items-center justify-between px-8 h-[60px]">
+          {/* Navigation */}
+          <nav className="flex space-x-8 font-medium text-gray-700">
+            <a href="#" className="hover:text-pink-500">
               Home
-              <ChevronDown className="ml-1 h-4 w-4 group-hover:rotate-180 transition-transform duration-200" />
             </a>
-            <a 
-              href="#" 
-              className="flex items-center text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 group"
-            >
+            <a href="#" className="hover:text-pink-500">
               Shop
-              <ChevronDown className="ml-1 h-4 w-4 group-hover:rotate-180 transition-transform duration-200" />
             </a>
-            <a 
-              href="#" 
-              className="flex items-center text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 group"
-            >
-              Pages
-              <ChevronDown className="ml-1 h-4 w-4 group-hover:rotate-180 transition-transform duration-200" />
+            <a href="#" className="hover:text-pink-500 flex items-center">
+              Pages <ChevronDown className="ml-1 w-4 h-4" />
             </a>
-            <a 
-              href="#" 
-              className="text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200"
-            >
+            <a href="#" className="hover:text-pink-500">
               About
             </a>
-            <a 
-              href="#" 
-              className="flex items-center text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 group"
-            >
+            <a href="#" className="hover:text-pink-500">
               Blog
-              <ChevronDown className="ml-1 h-4 w-4 group-hover:rotate-180 transition-transform duration-200" />
             </a>
-            <a 
-              href="#" 
-              className="text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200"
-            >
+            <a href="#" className="hover:text-pink-500">
               Contact
             </a>
           </nav>
-        </div>
 
-        {/* Right Side Icons */}
-        <div className="flex items-center space-x-2 pr-6">
-          <button className="p-2 text-gray-500 hover:text-blue-600 transition-all duration-200 hover:bg-blue-50 rounded-lg group">
-            <Heart className="h-5 w-5 group-hover:scale-110 transition-transform duration-200" />
-          </button>
-          <button className="p-2 text-gray-500 hover:text-blue-600 transition-all duration-200 hover:bg-blue-50 rounded-lg relative group">
-            <ShoppingCart className="h-5 w-5 group-hover:scale-110 transition-transform duration-200" />
-            <span className="absolute -top-1 -right-1 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium animate-pulse">
-              3
-            </span>
-          </button>
-          <button className="p-2 text-gray-500 hover:text-blue-600 transition-all duration-200 hover:bg-blue-50 rounded-lg group">
-            <User className="h-5 w-5 group-hover:scale-110 transition-transform duration-200" />
-          </button>
+          {/* Icons */}
+          <div className="flex items-center space-x-6 text-gray-700">
+            <Heart className="w-6 h-6 cursor-pointer hover:text-pink-500" />
+            <div className="relative">
+              <ShoppingCart className="w-6 h-6 cursor-pointer hover:text-pink-500" />
+              <span className="absolute -top-2 -right-2 bg-pink-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                3
+              </span>
+            </div>
+            <User className="w-6 h-6 cursor-pointer hover:text-pink-500" />
+          </div>
         </div>
       </div>
     </header>

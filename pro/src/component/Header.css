@@ -1,0 +1,102 @@
+.header {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+}
+
+.logo h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1f2937;
+    margin: 0;
+}
+
+.desktop-nav {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-link {
+    color: #6b7280;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+    color: #111827;
+}
+
+.mobile-menu-btn {
+    display: none;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 0;
+}
+
+.menu-button:hover {
+    color: #111827;
+}
+
+.menu-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.mobile-nav {
+    display: none;
+}
+
+.mobile-nav-content {
+    padding: 8px 8px 12px 8px;
+}
+
+.mobile-nav-link {
+    display: block;
+    color: #6b7280;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.mobile-nav-link:hover {
+    color: #111827;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .mobile-nav {
+        display: block;
+    }
+}
