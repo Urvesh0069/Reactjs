@@ -72,7 +72,7 @@ const ProductCarousel = () => {
   ];
 
   return (
-    <div className="h-[95vh] bg-white pt-10">
+    <div className="h-[95vh] bg-white pt-10 border-b-2 border-gray-900">
       <div className="w-[100%] bg-white mx-auto py-10 ">
         {/* Section Heading */}
         <div className="flex items gap-2 mb-6 flex-col ms-10">
@@ -137,3 +137,5 @@ const ProductCarousel = () => {
 };
 
 export default ProductCarousel;
+
+
