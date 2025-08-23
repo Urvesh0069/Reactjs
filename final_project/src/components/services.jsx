@@ -1,48 +1,40 @@
-import {
-  Truck,
-  ShieldCheck,
-  RotateCcw,
-  RefreshCw,
-  Package,
-} from "lucide-react";
-
 const ServiceFeatures = () => {
   const services = [
     {
-      icon: <Truck className="w-12 h-12 text-blue-500" />,
+      icon: "https://new.axilthemes.com/demo/template/etrade/assets/images/icons/service1.png",
       title: "Fast & Secure",
       subtitle: "Delivery",
     },
     {
-      icon: <ShieldCheck className="w-12 h-12 text-blue-500" />,
+      icon: "https://new.axilthemes.com/demo/template/etrade/assets/images/icons/service2.png",
       title: "100% Guarantee",
       subtitle: "On Product",
     },
     {
-      icon: <RotateCcw className="w-12 h-12 text-blue-500" />,
+      icon: "https://new.axilthemes.com/demo/template/etrade/assets/images/icons/service3.png",
       title: "24 Hour Return",
       subtitle: "Policy",
     },
     {
-      icon: <RefreshCw className="w-12 h-12 text-blue-500" />,
+      icon: "https://new.axilthemes.com/demo/template/etrade/assets/images/icons/service4.png",
       title: "24 Hour Return",
       subtitle: "Policy",
     },
     {
-      icon: <Package className="w-12 h-12 text-blue-500" />,
+      icon: "https://new.axilthemes.com/demo/template/etrade/assets/images/icons/service5.png",
       title: "Next Level Pro",
       subtitle: "Quality",
     },
   ];
   return (
-    <section className="py-12 bg-white ">
+    <section className="py-2 bg-white ">
       <div className=" grid grid-cols-5 gap-6 px-1">
         {services.map((service, index) => (
           <div
             key={index}
-            className="flex flex-col items-center justify-center p-6 border rounded-lg hover:shadow-md transition"
+            className="h-48 flex flex-col items-center justify-center p-6 border border-gray-200 rounded-lg hover:shadow-xl transition"
           >
-            {service.icon}
+            <img src={service.icon} alt="" />
             <h3 className="text-md font-semibold mt-4 text-center">
               {service.title}
             </h3>

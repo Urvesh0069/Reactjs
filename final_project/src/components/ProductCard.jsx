@@ -1,5 +1,3 @@
-import React from 'react';
-
 const ProductCard = ({ image, title, price }) => {
   return (
     <div className="bg-white h-full rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 group border border-gray-100">

@@ -1,10 +1,10 @@
 import React from "react";
-import { ShoppingCart, ChevronLeft, ChevronRight } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 
 const products = [
   {
     id: 1,
-    title: "Modern Hoddie",
+    title: "Modern Hoodie",
     price: "$29.99",
     oldPrice: "$49.99",
     rating: 5,
@@ -56,48 +56,50 @@ const BestSellers = () => {
         {products.map((item) => (
           <div
             key={item.id}
-            className="relative bg-gray-50 rounded-xl shadow-sm p-6 group hover:shadow-lg transition"
+            className="relative h-65 mb-25 bg-gray-100 shadow-md p-6 w-72 text-center"
           >
-            {/* Cart Button */}
-            <button className="absolute top-4 right-4 bg-white p-2 rounded-full shadow hover:bg-gray-100 transition">
-              <ShoppingCart className="w-4 h-4" />
+            {/* Add to Cart Button (Top Right) */}
+            <button className="absolute border-2 border-white top-[-25px] right-4 bg-gray-100 rounded-full p-3 hover:bg-blue-600 hover:text-white transition hover:border-blue-600 hover:shadow-lg">
+              <ShoppingCart className="w-5 h-5 text-gray-600 hover:text-white" />
             </button>
 
-            {/* Content */}
-            <h3 className="text-lg font-semibold text-gray-800 mb-2">
-              {item.title}
-            </h3>
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-lg font-bold text-gray-900">
-                {item.price}
-              </span>
-              <span className="text-sm text-gray-400 line-through">
-                {item.oldPrice}
-              </span>
+            {/* Product Info */}
+            <div className="text-left mb-4">
+              <h3 className="text-lg font-medium text-gray-900">{item.title}</h3>
+
+              {/* Price */}
+              <div className="flex items-center gap-2">
+                <span className="text-xl font-bold text-gray-900">
+                  {item.price}
+                </span>
+                <span className="text-gray-400 line-through">
+                  {item.oldPrice}
+                </span>
+              </div>
+
+              {/* Ratings */}
+              <div className="flex items-center text-yellow-400 mt-1">
+                {Array(item.rating)
+                  .fill(0)
+                  .map((_, i) => (
+                    <span key={i}>★</span>
+                  ))}
+                <span className="ml-2 text-gray-500 text-sm">
+                  ({item.reviews})
+                </span>
+              </div>
             </div>
 
-            {/* Rating */}
-            <div className="flex items-center text-yellow-500 text-sm mb-4">
-              {"★".repeat(item.rating)}
-              <span className="ml-2 text-gray-500">({item.reviews})</span>
-            </div>
-
-            {/* Image */}
+            {/* Product Image */}
             <div className="flex justify-center">
-              <img src={item.img} alt={item.title} className="h-48 object-contain" />
+              <img
+                src={item.img}
+                alt={item.title}
+                className="w-52 h-52 object-contain"
+              />
             </div>
           </div>
         ))}
-      </div>
-
-      {/* Slider Buttons */}
-      <div className="flex justify-end mt-8 gap-3">
-        <button className="p-3 rounded-lg bg-gray-100 hover:bg-gray-200 transition">
-          <ChevronLeft className="w-5 h-5" />
-        </button>
-        <button className="p-3 rounded-lg bg-gray-100 hover:bg-gray-200 transition">
-          <ChevronRight className="w-5 h-5" />
-        </button>
       </div>
     </section>
   );

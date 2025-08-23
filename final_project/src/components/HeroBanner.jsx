@@ -2,7 +2,7 @@ import React from "react";
 
 const HeroBanner = () => {
   return (
-    <section className="h-[80vh] bg-gray-50 rounded-2xl shadow-md mx-auto my-10 w-[90%] flex items-center justify-between p-10">
+    <section className="h-[60vh] bg-gray-50 rounded-2xl shadow-md mx-auto my-10 w-[90%] flex items-center justify-between p-10">
       {/* Left Side Content */}
       <div className="flex-1">
         <p className="text-pink-600 font-medium flex items-center gap-2">
@@ -32,7 +32,8 @@ const HeroBanner = () => {
       </div>
 
       {/* Right Side Product Image */}
-      <div className="flex-1 flex justify-end">
+      <div className="flex-1 flex justify-end pr-25 pb-50">
+        {/* Replace with your product image */}
         <img
           src="https://m.media-amazon.com/images/I/81Q5FLVF0vL.jpg" // put your image path in public folder
           alt="Smart Watch"

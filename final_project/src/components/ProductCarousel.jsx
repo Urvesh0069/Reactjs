@@ -72,19 +72,19 @@ const ProductCarousel = () => {
   ];
 
   return (
-    <div className="h-[95vh] bg-white pt-10 border-b-2 border-gray-900">
+    <div className="h-[95vh] bg-white pt-10">
       <div className="w-[100%] bg-white mx-auto py-10 ">
         {/* Section Heading */}
         <div className="flex items gap-2 mb-6 flex-col ms-10">
-          <p className="text-purple-600 mb-1 text-2xl rounded-full font-medium flex items-center">
+          <p className="text-purple-600 mb-1  rounded-full font-medium flex items-center">
             <FontAwesomeIcon
               icon={faShoppingBasket}
               aria-hidden="true"
-              className="p-1 bg-purple-700 text-2xl rounded-full p-1 text-white me-2 "
+              className="p-1 bg-purple-700  rounded-full p-1 text-white me-2 "
             />
             This Week’s
           </p>
-          <p className="text-4xl font-bold">New Arrivals</p>
+          <h2 className="text-4xl font-bold">New Arrivals</h2>
         </div>
 
         {/* Swiper */}

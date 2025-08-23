@@ -1,87 +1,106 @@
-import React, { useState } from 'react';
-import { ChevronDown, ChevronRight, Shirt, Laptop, Home, Pill, Sofa, Scissors, Watch, Camera } from 'lucide-react';
+import React, { useState } from "react";
+import {
+  ChevronDown,
+  ChevronRight,
+  Shirt,
+  Laptop,
+  Home,
+  Pill,
+  Sofa,
+  Scissors,
+  Watch,
+  Camera,
+} from "lucide-react";
 
 const Sidebar = () => {
   const [expandedCategories, setExpandedCategories] = useState([]);
 
   const categories = [
-    { 
-      name: 'Fashion', 
-      icon: Shirt, 
-      hasDropdown: true, 
-      color: 'text-blue-400',
-      subcategories: ['Men\'s Clothing', 'Women\'s Clothing', 'Shoes', 'Accessories']
+    {
+      name: "Fashion",
+      icon: Shirt,
+      hasDropdown: true,
+      color: "text-blue-400",
+      subcategories: [
+        "Men's Clothing",
+        "Women's Clothing",
+        "Shoes",
+        "Accessories",
+      ],
     },
-    { 
-      name: 'Electronics', 
-      icon: Laptop, 
-      hasDropdown: true, 
-      color: 'text-blue-400',
-      subcategories: ['Smartphones', 'Laptops', 'Tablets', 'Audio']
+    {
+      name: "Electronics",
+      icon: Laptop,
+      hasDropdown: true,
+      color: "text-blue-400",
+      subcategories: ["Smartphones", "Laptops", "Tablets", "Audio"],
     },
-    { 
-      name: 'Home Decor', 
-      icon: Home, 
-      hasDropdown: true, 
-      color: 'text-blue-400',
-      subcategories: ['Living Room', 'Bedroom', 'Kitchen', 'Bathroom']
+    {
+      name: "Home Decor",
+      icon: Home,
+      hasDropdown: true,
+      color: "text-blue-400",
+      subcategories: ["Living Room", "Bedroom", "Kitchen", "Bathroom"],
     },
-    { 
-      name: 'Medicine', 
-      icon: Pill, 
-      hasDropdown: false, 
-      color: 'text-blue-400'
+    {
+      name: "Medicine",
+      icon: Pill,
+      hasDropdown: false,
+      color: "text-blue-400",
     },
-    { 
-      name: 'Furniture', 
-      icon: Sofa, 
-      hasDropdown: false, 
-      color: 'text-blue-400'
+    {
+      name: "Furniture",
+      icon: Sofa,
+      hasDropdown: false,
+      color: "text-blue-400",
     },
-    { 
-      name: 'Crafts', 
-      icon: Scissors, 
-      hasDropdown: false, 
-      color: 'text-blue-400'
+    {
+      name: "Crafts",
+      icon: Scissors,
+      hasDropdown: false,
+      color: "text-blue-400",
     },
-    { 
-      name: 'Accessories', 
-      icon: Watch, 
-      hasDropdown: false, 
-      color: 'text-blue-400'
+    {
+      name: "Accessories",
+      icon: Watch,
+      hasDropdown: false,
+      color: "text-blue-400",
     },
-    { 
-      name: 'Camera', 
-      icon: Camera, 
-      hasDropdown: false, 
-      color: 'text-blue-400'
+    {
+      name: "Camera",
+      icon: Camera,
+      hasDropdown: false,
+      color: "text-blue-400",
     },
   ];
 
   const toggleCategory = (index) => {
-    setExpandedCategories(prev => 
-      prev.includes(index) 
-        ? prev.filter(i => i !== index)
-        : [...prev, index]
+    setExpandedCategories((prev) =>
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
     );
   };
 
   return (
-    <aside className="w-65 bg-white shadow-lg border-r border-gray-100  ">
+    <aside className="w-65 bg-white border border-gray-100 h-115">
       {/* Categories List */}
       <div className="py-2">
         {categories.map((category, index) => {
           const IconComponent = category.icon;
           const isExpanded = expandedCategories.includes(index);
-          
+
           return (
-            <div key={index} className="border-b border-gray-50 last:border-b-0">
+            <div
+              key={index}
+              className=" border-b border-gray-200"
+            >
               <div
                 className="flex items-center justify-between px-6 py-4 hover:bg-blue-50 cursor-pointer transition-all duration-200 group"
                 onClick={() => category.hasDropdown && toggleCategory(index)}
               >
                 <div className="flex items-center">
-                  <IconComponent className={`h-5 w-5 ${category.color} mr-4 group-hover:text-blue-600 transition-colors duration-200 group-hover:scale-110`} />
+                  <IconComponent
+                    className={`h-5 w-5 ${category.color} mr-4 group-hover:text-blue-600 transition-colors duration-200 group-hover:scale-110`}
+                  />
                   <span className="text-gray-700 group-hover:text-blue-600 transition-colors duration-200 font-medium">
                     {category.name}
                   </span>
@@ -96,7 +115,7 @@ const Sidebar = () => {
                   </div>
                 )}
               </div>
-              
+
               {/* Subcategories */}
               {category.hasDropdown && isExpanded && (
                 <div className="bg-gray-50 border-t border-gray-100">

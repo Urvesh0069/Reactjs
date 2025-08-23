@@ -3,7 +3,7 @@ import { Menu, Heart, ShoppingCart, User, ChevronDown } from "lucide-react";
 
 const Header = () => {
   return (
-    <header className="bg-white shadow-sm border-b border-gray-100 top-0 z-50">
+    <header className="bg-gray-100 top-0 z-50">
       <div className="flex items-center">
         {/* Categories Button - Left Side */}
         <div className="w-[260px] bg-blue-600 h-[60px] flex items-center px-6">

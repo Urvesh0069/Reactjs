@@ -12,16 +12,16 @@ import Features from "../components/Features";
 const HomePage = () => {
   return (
     <>
-      <div className="min-h-screen bg-gray-900 px-4 px-26">
+      <div className="min-h-screen px-4 px-26">
         <MainContent />
         <ServiceFeatures />
       </div>
-      <div className="bg-gray-900 flex justify-end">
+      <div className="flex justify-end">
         <div className="w-[93.1%]">
           <ProductCarousel />
         </div>
       </div>
-      <div className="min-h-screen bg-gray-900 px-26">
+      <div className="min-h-screen px-26">
         <div className="bg-white">
           <BestSellers />
           <HeroBanner />
@@ -32,7 +32,7 @@ const HomePage = () => {
       <div>
         <Testimonials />
       </div>
-      <div className="min-h-screen bg-gray-900 px-26">
+      <div className="min-h-screen bg-white px-26">
         <div className="bg-white">
           <NewArrivals/>
           <Newsletter />
