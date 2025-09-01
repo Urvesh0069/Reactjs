@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
 
 .swiper {
   width: 100%;
@@ -8,8 +10,6 @@
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #444;
-
   /* Center slide text vertically */
   display: flex;
   justify-content: center;
