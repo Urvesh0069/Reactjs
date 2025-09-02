@@ -5,6 +5,9 @@ import RoomList from "./components/RoomList";
 import ReservationForm from "./components/ReservationForm";
 import ReservationList from "./components/ReservationList";
 import PrivateRoute from "./components/PrivateRoute";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Profile from "./components/Profile";
 
 function App() {
   return (
@@ -14,6 +17,16 @@ function App() {
         <Route index element={<Navigate to="/rooms" replace />} />
         <Route path="/rooms" element={<RoomList />} />
         <Route path="/reserve" element={<ReservationForm />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute requireAuth={true}>
+              <Profile />
+            </PrivateRoute>
+          }
+        />
         <Route
           path="/reservations"
           element={

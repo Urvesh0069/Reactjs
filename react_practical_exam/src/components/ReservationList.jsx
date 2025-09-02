@@ -35,7 +35,8 @@ function ReservationList() {
 
   const roomIdToNumber = useMemo(() => {
     const map = new Map();
-    rooms.forEach((r) => map.set(r.id, r.number));
+    // Normalize map keys to strings to match reservation.roomId when looked up
+    rooms.forEach((r) => map.set(String(r.id), r.number));
     return map;
   }, [rooms]);
 
@@ -100,7 +101,8 @@ function ReservationList() {
             {reservations.map((r, idx) => (
               <tr key={r.id}>
                 <td>{idx + 1}</td>
-                <td>{roomIdToNumber.get(r.roomId) || r.roomId}</td>
+                {/* Use string key to handle type differences between room ids in rooms (string) and reservations (number) */}
+                <td>{roomIdToNumber.get(String(r.roomId)) || r.roomId}</td>
                 {editId === r.id ? (
                   <>
                     <td>

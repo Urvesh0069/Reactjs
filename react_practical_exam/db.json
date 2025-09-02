@@ -51,6 +51,14 @@
       "checkIn": "2025-09-14",
       "checkOut": "2025-09-17",
       "status": "confirmed"
+    },
+    {
+      "id": "2343",
+      "roomId": 1,
+      "guest": "Vishal",
+      "checkIn": "2332-12-12",
+      "checkOut": "2333-10-31",
+      "status": "confirmed"
     }
   ],
   "users": [
@@ -63,6 +71,12 @@
       "id": "2",
       "name": "Manager",
       "email": "manager@example.com"
+    },
+    {
+      "id": "f73b",
+      "name": "vishal",
+      "email": "visal@gmail.com",
+      "password": "vishal123"
     }
   ]
 }
