@@ -1,0 +1,9 @@
+{
+  "/api/rooms": "/rooms",
+  "/api/rooms/:id": "/rooms/:id",
+  "/api/reservations": "/reservations",
+  "/api/reservations/:id": "/reservations/:id",
+  "/api/users": "/users",
+  "/api/users/:id": "/users/:id"
+}
+
